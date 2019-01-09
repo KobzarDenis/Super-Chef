@@ -104,6 +104,15 @@ create table if not exists "orders" (
 	foreign key ("discountId") references "discounts" ("id")
 );
 
+create table if not exists "orderFoods" (
+	"orderId" int4 not null,
+	"foodId" int4 not null,
+	"count" int4 not null,
+	primary key ("orderId", "foodId"),
+	foreign key ("orderId") references "orders" ("id"),
+	foreign key ("foodId") references "foods" ("id")
+);
+
 create table if not exists "clientOrders" (
 	"clientId" int4 not null,
 	"orderId" int4 not null,
