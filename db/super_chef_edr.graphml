@@ -6,11 +6,11 @@
 		<node id="n1">
 			<data key="nodegraph">
 				<y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-					<y:Geometry height="74" width="195" x="20" y="58"/>
+					<y:Geometry height="74" width="195" x="20" y="77"/>
 					<y:Fill color="#ECEBEC" transparent="false"/>
 					<y:BorderStyle color="#000000" type="line" width="1.0"/>
-					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="191" x="22" y="60">clientDiscounts</y:NodeLabel>
-					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="5" width="191" x="22" y="125">clientId: int4 NOT NULL
+					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="191" x="22" y="79">clientDiscounts</y:NodeLabel>
+					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="5" width="191" x="22" y="144">clientId: int4 NOT NULL
 discountId: int4 NOT NULL						<y:LabelModel>
 							<y:ErdAttributesNodeLabelModel/>
 						</y:LabelModel>
@@ -24,11 +24,11 @@ discountId: int4 NOT NULL						<y:LabelModel>
 		<node id="n2">
 			<data key="nodegraph">
 				<y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-					<y:Geometry height="74" width="175" x="20" y="253"/>
+					<y:Geometry height="74" width="175" x="20" y="278"/>
 					<y:Fill color="#ECEBEC" transparent="false"/>
 					<y:BorderStyle color="#000000" type="line" width="1.0"/>
-					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="171" x="22" y="255">clientOrders</y:NodeLabel>
-					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="5" width="171" x="22" y="320">clientId: int4 NOT NULL
+					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="171" x="22" y="280">clientOrders</y:NodeLabel>
+					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="5" width="171" x="22" y="345">clientId: int4 NOT NULL
 orderId: int4 NOT NULL						<y:LabelModel>
 							<y:ErdAttributesNodeLabelModel/>
 						</y:LabelModel>
@@ -42,13 +42,13 @@ orderId: int4 NOT NULL						<y:LabelModel>
 		<node id="n3">
 			<data key="nodegraph">
 				<y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-					<y:Geometry height="131" width="261" x="265" y="126"/>
+					<y:Geometry height="131" width="270" x="265" y="145"/>
 					<y:Fill color="#ECEBEC" transparent="false"/>
 					<y:BorderStyle color="#000000" type="line" width="1.0"/>
-					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="257" x="267" y="128">clients</y:NodeLabel>
-					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="81" width="257" x="267" y="174">id: int4 NOT NULL
-firstName: varchar(50) NOT NULL
-lastName: varchar(50) NOT NULL
+					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="266" x="267" y="147">clients</y:NodeLabel>
+					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="81" width="266" x="267" y="193">id: int4 NOT NULL
+firstName: varchar(100) NOT NULL
+lastName: varchar(100) NOT NULL
 email: varchar(50)
 phoneNumber: varchar(20) NOT NULL						<y:LabelModel>
 							<y:ErdAttributesNodeLabelModel/>
@@ -63,11 +63,11 @@ phoneNumber: varchar(20) NOT NULL						<y:LabelModel>
 		<node id="n4">
 			<data key="nodegraph">
 				<y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-					<y:Geometry height="74" width="208" x="910" y="58"/>
+					<y:Geometry height="74" width="208" x="1050" y="77"/>
 					<y:Fill color="#ECEBEC" transparent="false"/>
 					<y:BorderStyle color="#000000" type="line" width="1.0"/>
-					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="204" x="912" y="60">discountGroups</y:NodeLabel>
-					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="24" width="204" x="912" y="106">id: int4 NOT NULL
+					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="204" x="1052" y="79">discountGroups</y:NodeLabel>
+					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="24" width="204" x="1052" y="125">id: int4 NOT NULL
 name: varchar(50) NOT NULL						<y:LabelModel>
 							<y:ErdAttributesNodeLabelModel/>
 						</y:LabelModel>
@@ -81,12 +81,14 @@ name: varchar(50) NOT NULL						<y:LabelModel>
 		<node id="n5">
 			<data key="nodegraph">
 				<y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-					<y:Geometry height="150" width="246" x="595" y="20"/>
+					<y:Geometry height="188" width="310" x="685" y="20"/>
 					<y:Fill color="#ECEBEC" transparent="false"/>
 					<y:BorderStyle color="#000000" type="line" width="1.0"/>
-					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="242" x="597" y="22">discounts</y:NodeLabel>
-					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="100" width="242" x="597" y="68">id: int4 NOT NULL
+					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="306" x="687" y="22">discounts</y:NodeLabel>
+					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="138" width="306" x="687" y="68">id: int4 NOT NULL
+code: varchar(10) NOT NULL
 count: float4 NOT NULL
+accumulativeBonuses: float4 NOT NULL
 description: text
 groupId: int4 NOT NULL
 startDate: timestamptz NOT NULL
@@ -103,11 +105,11 @@ endDate: timestamptz						<y:LabelModel>
 		<node id="n6">
 			<data key="nodegraph">
 				<y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-					<y:Geometry height="93" width="242" x="910" y="305"/>
+					<y:Geometry height="93" width="242" x="1050" y="343"/>
 					<y:Fill color="#ECEBEC" transparent="false"/>
 					<y:BorderStyle color="#000000" type="line" width="1.0"/>
-					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="238" x="912" y="307">employeeRoles</y:NodeLabel>
-					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="43" width="238" x="912" y="353">id: int4 NOT NULL
+					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="238" x="1052" y="345">employeeRoles</y:NodeLabel>
+					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="43" width="238" x="1052" y="391">id: int4 NOT NULL
 name: varchar(50) NOT NULL
 description: text						<y:LabelModel>
 							<y:ErdAttributesNodeLabelModel/>
@@ -122,17 +124,17 @@ description: text						<y:LabelModel>
 		<node id="n7">
 			<data key="nodegraph">
 				<y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-					<y:Geometry height="302" width="275" x="595" y="200"/>
+					<y:Geometry height="302" width="325" x="685" y="238"/>
 					<y:Fill color="#ECEBEC" transparent="false"/>
 					<y:BorderStyle color="#000000" type="line" width="1.0"/>
-					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="271" x="597" y="202">employees</y:NodeLabel>
-					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="252" width="271" x="597" y="248">id: int4 NOT NULL
-firstName: varchar(50) NOT NULL
-lastName: varchar(50) NOT NULL
+					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="321" x="687" y="240">employees</y:NodeLabel>
+					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="252" width="321" x="687" y="286">id: int4 NOT NULL
+firstName: varchar(100) NOT NULL
+lastName: varchar(100) NOT NULL
 ein: varchar(20) NOT NULL
-passportCode: varchar(2) NOT NULL
-passportSeries: int2 NOT NULL
-sex: varchar(6) NOT NULL
+passportCode: varchar(5) NOT NULL
+passportSeries: varchar(10) NOT NULL
+sex: enum_employees_sex NOT NULL
 salary: float8 NOT NULL
 address: varchar(100) NOT NULL
 phoneNumber: varchar(20) NOT NULL
@@ -152,12 +154,12 @@ fireDate: timestamptz						<y:LabelModel>
 		<node id="n8">
 			<data key="nodegraph">
 				<y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-					<y:Geometry height="74" width="208" x="595" y="636"/>
+					<y:Geometry height="74" width="217" x="685" y="693"/>
 					<y:Fill color="#ECEBEC" transparent="false"/>
 					<y:BorderStyle color="#000000" type="line" width="1.0"/>
-					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="204" x="597" y="638">foodGroups</y:NodeLabel>
-					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="24" width="204" x="597" y="684">id: int4 NOT NULL
-name: varchar(50) NOT NULL						<y:LabelModel>
+					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="213" x="687" y="695">foodGroups</y:NodeLabel>
+					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="24" width="213" x="687" y="741">id: int4 NOT NULL
+name: varchar(100) NOT NULL						<y:LabelModel>
 							<y:ErdAttributesNodeLabelModel/>
 						</y:LabelModel>
 						<y:ModelParameter>
@@ -170,13 +172,13 @@ name: varchar(50) NOT NULL						<y:LabelModel>
 		<node id="n9">
 			<data key="nodegraph">
 				<y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-					<y:Geometry height="93" width="205" x="20" y="609"/>
+					<y:Geometry height="93" width="205" x="20" y="647"/>
 					<y:Fill color="#ECEBEC" transparent="false"/>
 					<y:BorderStyle color="#000000" type="line" width="1.0"/>
-					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="201" x="22" y="611">foodIngredients</y:NodeLabel>
-					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="24" width="201" x="22" y="676">foodId: int4 NOT NULL
+					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="201" x="22" y="649">foodIngredients</y:NodeLabel>
+					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="24" width="201" x="22" y="714">foodId: int4 NOT NULL
 ingredientId: int4 NOT NULL
-weight: float8 NOT NULL						<y:LabelModel>
+weight: float4 NOT NULL						<y:LabelModel>
 							<y:ErdAttributesNodeLabelModel/>
 						</y:LabelModel>
 						<y:ModelParameter>
@@ -189,14 +191,14 @@ weight: float8 NOT NULL						<y:LabelModel>
 		<node id="n10">
 			<data key="nodegraph">
 				<y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-					<y:Geometry height="131" width="242" x="265" y="524"/>
+					<y:Geometry height="131" width="251" x="265" y="562"/>
 					<y:Fill color="#ECEBEC" transparent="false"/>
 					<y:BorderStyle color="#000000" type="line" width="1.0"/>
-					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="238" x="267" y="526">foods</y:NodeLabel>
-					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="81" width="238" x="267" y="572">id: int4 NOT NULL
-name: varchar(50) NOT NULL
+					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="247" x="267" y="564">foods</y:NodeLabel>
+					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="81" width="247" x="267" y="610">id: int4 NOT NULL
+name: varchar(100) NOT NULL
 description: text
-price: float8 NOT NULL
+price: float4 NOT NULL
 groupId: int4 NOT NULL						<y:LabelModel>
 							<y:ErdAttributesNodeLabelModel/>
 						</y:LabelModel>
@@ -210,12 +212,12 @@ groupId: int4 NOT NULL						<y:LabelModel>
 		<node id="n11">
 			<data key="nodegraph">
 				<y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-					<y:Geometry height="74" width="208" x="265" y="685"/>
+					<y:Geometry height="74" width="217" x="265" y="723"/>
 					<y:Fill color="#ECEBEC" transparent="false"/>
 					<y:BorderStyle color="#000000" type="line" width="1.0"/>
-					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="204" x="267" y="687">ingredients</y:NodeLabel>
-					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="24" width="204" x="267" y="733">id: int4 NOT NULL
-name: varchar(50) NOT NULL						<y:LabelModel>
+					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="213" x="267" y="725">ingredients</y:NodeLabel>
+					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="24" width="213" x="267" y="771">id: int4 NOT NULL
+name: varchar(100) NOT NULL						<y:LabelModel>
 							<y:ErdAttributesNodeLabelModel/>
 						</y:LabelModel>
 						<y:ModelParameter>
@@ -228,13 +230,14 @@ name: varchar(50) NOT NULL						<y:LabelModel>
 		<node id="n12">
 			<data key="nodegraph">
 				<y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-					<y:Geometry height="93" width="174" x="20" y="444"/>
+					<y:Geometry height="112" width="174" x="20" y="467"/>
 					<y:Fill color="#ECEBEC" transparent="false"/>
 					<y:BorderStyle color="#000000" type="line" width="1.0"/>
-					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="170" x="22" y="446">orderFoods</y:NodeLabel>
-					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="24" width="170" x="22" y="511">orderId: int4 NOT NULL
+					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="170" x="22" y="469">orderFoods</y:NodeLabel>
+					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="43" width="170" x="22" y="534">orderId: int4 NOT NULL
 foodId: int4 NOT NULL
-count: int4 NOT NULL						<y:LabelModel>
+count: int2 NOT NULL
+price: float4 NOT NULL						<y:LabelModel>
 							<y:ErdAttributesNodeLabelModel/>
 						</y:LabelModel>
 						<y:ModelParameter>
@@ -247,19 +250,20 @@ count: int4 NOT NULL						<y:LabelModel>
 		<node id="n13">
 			<data key="nodegraph">
 				<y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-					<y:Geometry height="207" width="290" x="265" y="287"/>
+					<y:Geometry height="226" width="380" x="265" y="306"/>
 					<y:Fill color="#ECEBEC" transparent="false"/>
 					<y:BorderStyle color="#000000" type="line" width="1.0"/>
-					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="286" x="267" y="289">orders</y:NodeLabel>
-					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="157" width="286" x="267" y="335">id: int4 NOT NULL
+					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="376" x="267" y="308">orders</y:NodeLabel>
+					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="176" width="376" x="267" y="354">id: int4 NOT NULL
 employeeId: int4 NOT NULL
 tableId: int4 NOT NULL
-discountId: int4 NOT NULL
+discountId: int4
 startDate: timestamptz NOT NULL
 endDate: timestamptz
-totalPrice: float8
-priceWithDiscount: float8
-tips: float8						<y:LabelModel>
+totalPrice: float4
+priceWithDiscount: float4
+tips: float4
+paymentType: enum_orders_paymentType NOT NULL						<y:LabelModel>
 							<y:ErdAttributesNodeLabelModel/>
 						</y:LabelModel>
 						<y:ModelParameter>
@@ -272,12 +276,13 @@ tips: float8						<y:LabelModel>
 		<node id="n14">
 			<data key="nodegraph">
 				<y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-					<y:Geometry height="74" width="189" x="595" y="532"/>
+					<y:Geometry height="93" width="285" x="685" y="570"/>
 					<y:Fill color="#ECEBEC" transparent="false"/>
 					<y:BorderStyle color="#000000" type="line" width="1.0"/>
-					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="185" x="597" y="534">tables</y:NodeLabel>
-					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="24" width="185" x="597" y="580">id: int4 NOT NULL
-seatCount: int4 NOT NULL						<y:LabelModel>
+					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="281" x="687" y="572">tables</y:NodeLabel>
+					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="43" width="281" x="687" y="618">id: int4 NOT NULL
+seatCount: int2
+status: enum_tables_status NOT NULL						<y:LabelModel>
 							<y:ErdAttributesNodeLabelModel/>
 						</y:LabelModel>
 						<y:ModelParameter>

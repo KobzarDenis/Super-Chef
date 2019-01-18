@@ -1,0 +1,28 @@
+{
+  "name": "super-chef",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KobzarDenis/Super-Chef.git"
+  },
+  "author": "Denys Kobzar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KobzarDenis/Super-Chef/issues"
+  },
+  "homepage": "https://github.com/KobzarDenis/Super-Chef#readme",
+  "dependencies": {
+    "factory-girl": "^5.0.4",
+    "faker": "^4.1.0",
+    "fs-extra": "^5.0.0",
+    "pg": "^7.4.3",
+    "reflect-metadata": "^0.1.12",
+    "sequelize": "^4.42.0",
+    "source-map-support": "^0.5.3"
+  }
+}
