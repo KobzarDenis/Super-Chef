@@ -1,6 +1,6 @@
 -- Comments for clients types and constraints
 comment on column "clients"."firstName" is 'Type varchar(100) because it is variable type and doesnt matter if name will be shorter.';
-comment on column "clients"."lastName" is 'Type varchar(100) because it is variable type and doesnt matter if name will be shorter.';
+comment on column "clients"."lastName" is 'Type varchar(100) because it is variable type and doesnt matter if name will be shorter. Null because it is not required';
 comment on column "clients"."email" is 'Type varchar(50) because it is variable type and doesnt matter if email will be shorter. Null because it doesnt required.';
 comment on column "clients"."phoneNumber" is 'Type varchar(20) because phoneNumber can not be longer. Not null because it is required.';
 comment on index "clients_phoneNumber" is 'This index created for optimized client search by phone number.';
@@ -11,7 +11,6 @@ comment on index "clients_firstName_lastName" is 'This index created for optimiz
 comment on column "tables"."seatCount" is 'Type smallint it is smallest integer type. Not null because it is required.';
 comment on column "tables"."status" is 'Type enum_tables_status for check table status.';
 comment on constraint "tables_positive_seatCount" on "tables" is 'Seat count can not be smallest than 2 places.';
-comment on constraint "tables_real_seatCount" on "tables" is 'Seat count can not be biggest than 20 places.';
 
 
 -- Comments for foodGroups types and constraints
@@ -21,7 +20,7 @@ comment on column "foodGroups"."name" is 'Type varchar(100) name can be shorter 
 -- Comments for foods types and constraints
 comment on column "foods"."name" is 'Type varchar(100) name can be shorter but can not be longer than 100 characters.';
 comment on column "foods"."description" is 'Type text because description will be able to have unlimited length.';
-comment on column "foods"."price" is 'Type float4 because it wont be supper long.';
+comment on column "foods"."price" is 'Type numeric(5,2) because we need only 2 digits scale.';
 comment on constraint "foods_positive_price" on "foods" is 'Price can not be negative or 0.';
 comment on index "foods_price" is 'This index created for optimized food search by prices.';
 
@@ -31,7 +30,7 @@ comment on column "ingredients"."name" is 'Type varchar(100) name can be shorter
 
 
 -- Comments for foodIngredients types and constraints
-comment on column "foodIngredients"."weight" is 'Type float4 because it wont be supper long.';
+comment on column "foodIngredients"."weight" is 'Type numeric(5,4) because we need only 4 digits scale, not longer.';
 comment on constraint "foodIngredients_positive_weight" on "foodIngredients" is 'Food ingredient weight can not be negative or 0.';
 
 
@@ -44,7 +43,7 @@ comment on index "employeeRoles_name" is 'This index created for optimized searc
 -- Comments for employees types and constraints
 comment on column "employees"."firstName" is 'Type varchar(100) because it is variable type and doesnt matter if name will be shorter.';
 comment on column "employees"."lastName" is 'Type varchar(100) because it is variable type and doesnt matter if name will be shorter.';
-comment on column "employees"."email" is 'Type varchar(50) because it is variable type and doesnt matter if email will be shorter. Not null because it is required.';
+comment on column "employees"."email" is 'Type varchar(50) because it is variable type and doesnt matter if email will be shorter. Null because it is not required.';
 comment on column "employees"."phoneNumber" is 'Type varchar(20) because phoneNumber can not be longer. Not null because it is required.';
 comment on column "employees"."ein" is 'Type varchar(20) because ein can not be longer. Not null because it is required. Uniq because it is uniq for each employee.';
 comment on column "employees"."passportCode" is 'Type varchar(2) because passportCode can not be longer. Not null because it is required';
@@ -67,7 +66,7 @@ comment on column "discountGroups"."name" is 'Type varchar(50) name can be short
 
 -- Comments for discounts types and constraints
 comment on column "discounts"."code" is 'Type varchar(100) because it is variable type and doesnt matter if name will be shorter.';
-comment on column "discounts"."count" is 'Type float4 because it wont be super long.';
+comment on column "discounts"."count" is 'Type numeric(5,2) because we need only 2 digits scale.';
 comment on column "discounts"."accumulativeBonuses" is 'Type float4 because it wont be super long.';
 comment on column "discounts"."description" is 'Type text because description will be able to have unlimited length.';
 comment on column "discounts"."startDate" is 'Type timestamptz because we can have worldwide restaurant. Null because we dont need this data during insert';
@@ -79,9 +78,10 @@ comment on index "discounts_code" is 'This index created for optimized search di
 
 
 -- Comments for orders types and constraints
-comment on column "orders"."totalPrice" is 'Type float4 because it wont be super long.';
-comment on column "orders"."priceWithDiscount" is 'Type float4 because it wont be super long. Null because client will be able for pay without discount.';
-comment on column "orders"."tips" is 'Type float4 because it wont be super long. Null because can to let nothing.';
+comment on column "orders"."clientId" is 'Null because the client can be incognito. It means that we have no him in our DB.';
+comment on column "orders"."totalPrice" is 'Type numeric(5,2) because we need only 2 digits scale.';
+comment on column "orders"."priceWithDiscount" is 'Type numeric(5,2) because we need only 2 digits scale. Null because client will be able for pay without discount.';
+comment on column "orders"."tips" is 'Type numeric(5,2) because we need only 2 digits scale. Null because can to let nothing.';
 comment on column "orders"."paymentType" is 'Type enum_orders_paymentType because we have only 2 options.';
 comment on column "orders"."startDate" is 'Type timestamptz because we can have worldwide restaurant. Null because we dont need this data during insert.';
 comment on column "orders"."endDate" is 'Type timestamptz because we can have worldwide restaurant. Not null because it is required.';
@@ -93,6 +93,6 @@ comment on index "orders_dates" is 'This index created for optimized search orde
 
 -- Comments for orders types and constraints
 comment on column "orderFoods"."count" is 'Type smallint because it wont be super long.';
-comment on column "orderFoods"."price" is 'Type float4 because it wont be super long.';
+comment on column "orderFoods"."price" is 'Type numeric(5,2) because we need only 2 digits scale.';
 comment on constraint "orderFoods_positive_count" on "orderFoods" is 'Count can not be smallest than 0.';
 comment on constraint "orderFoods_positive_price" on "orderFoods" is 'Price can not be smallest than 0.1.';

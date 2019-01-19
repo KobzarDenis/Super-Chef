@@ -1,6 +1,6 @@
 create table if not exists "clients" (
 	"id" serial primary key,
-	"firstName" varchar(100) not null,
+	"firstName" varchar(100) null,
 	"lastName" varchar(100) not null,
 	"email" varchar(50),
 	"phoneNumber" varchar(20) not null
@@ -10,8 +10,7 @@ create table if not exists "tables" (
 	"id" serial primary key,
 	"seatCount" smallint,
 	"status" enum_tables_status not null default 'free',
-	constraint "tables_positive_seatCount"  check ("seatCount" > 1),
-	constraint "tables_real_seatCount"  check ("seatCount" <= 20)
+	constraint "tables_positive_seatCount"  check ("seatCount" > 0)
 );
 
 create table if not exists "foodGroups" (
@@ -23,7 +22,7 @@ create table if not exists "foods" (
 	"id" serial primary key,
 	"name" varchar(100) not null,
 	"description" text null,
-	"price" float4 not null,
+	"price" numeric(5,2) not null,
 	"groupId" int4 not null,
 	constraint "foods_positive_price"  check ("price" > 0),
 	foreign key ("groupId") references "foodGroups" ("id")
@@ -37,7 +36,7 @@ create table if not exists "ingredients" (
 create table if not exists "foodIngredients" (
 	"foodId" int4 not null,
 	"ingredientId" int4 not null,
-	"weight" float4 not null,
+	"weight" numeric(5,4) not null,
 	constraint "foodIngredients_positive_weight"  check ("weight" > 0),
 	primary key ("foodId", "ingredientId"),
 	foreign key ("foodId") references "foods" ("id"),
@@ -58,10 +57,10 @@ create table if not exists "employees" (
 	"passportCode" varchar(5) not null,
 	"passportSeries" varchar(10) not null,
 	"sex" enum_employees_sex not null,
-	"salary" float8 not null,
+	"salary" numeric(5,2) not null,
 	"address" varchar(100) not null,
 	"phoneNumber" varchar(20) not null,
-	"email" varchar(50) not null,
+	"email" varchar(50) null,
 	"roleId" int4 not null,
 	"offerDate" timestamptz not null,
 	"fireDate" timestamptz null,
@@ -79,8 +78,8 @@ create table if not exists "discountGroups" (
 create table if not exists "discounts" (
 	"id" serial primary key,
 	"code" varchar(10) not null,
-	"count" float4 not null,
-	"accumulativeBonuses" float4 not null default 0,
+	"count" numeric(5,2) not null,
+	"accumulativeBonuses" numeric(5,2) not null default 0,
 	"description" text null,
 	"groupId" int4 not null,
 	"startDate" timestamptz not null,
@@ -101,15 +100,17 @@ create table if not exists "clientDiscounts" (
 
 create table if not exists "orders" (
 	"id" serial primary key,
+	"clientId" int4 null,
 	"employeeId" int4 not null,
 	"tableId" int4 not null,
 	"discountId" int4 null,
 	"startDate" timestamptz not null,
 	"endDate" timestamptz null,
-	"totalPrice" float4 null,
-	"priceWithDiscount" float4 null,
-	"tips" float4 default 0,
+	"totalPrice" numeric(5,2) null,
+	"priceWithDiscount" numeric(5,2) null,
+	"tips" numeric(5,2) default 0,
 	"paymentType" "enum_orders_paymentType" not null,
+	foreign key ("clientId") references "clients" ("id"),
 	foreign key ("employeeId") references "employees" ("id"),
 	foreign key ("tableId") references "tables" ("id"),
 	foreign key ("discountId") references "discounts" ("id"),
@@ -121,18 +122,10 @@ create table if not exists "orderFoods" (
 	"orderId" int4 not null,
 	"foodId" int4 not null,
 	"count" smallint not null,
-	"price" float4 not null,
+	"price" numeric(5,2) not null,
 	primary key ("orderId", "foodId"),
 	foreign key ("orderId") references "orders" ("id"),
 	foreign key ("foodId") references "foods" ("id"),
 	constraint "orderFoods_positive_count" check("count" > 0),
 	constraint "orderFoods_positive_price" check("price" > 0)
-);
-
-create table if not exists "clientOrders" (
-	"clientId" int4 not null,
-	"orderId" int4 not null,
-	primary key ("clientId", "orderId"),
-	foreign key ("clientId") references "clients" ("id"),
-	foreign key ("orderId") references "orders" ("id")
 );
