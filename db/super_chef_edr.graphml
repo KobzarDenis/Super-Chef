@@ -29,8 +29,8 @@ discountId: int4 NOT NULL						<y:LabelModel>
 					<y:BorderStyle color="#000000" type="line" width="1.0"/>
 					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="266" x="705" y="799">clients</y:NodeLabel>
 					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="81" width="266" x="705" y="845">id: int4 NOT NULL
-firstName: varchar(100)
-lastName: varchar(100) NOT NULL
+firstName: varchar(100) NOT NULL
+lastName: varchar(100)
 email: varchar(50)
 phoneNumber: varchar(20) NOT NULL						<y:LabelModel>
 							<y:ErdAttributesNodeLabelModel/>
@@ -232,11 +232,11 @@ price: numeric(5,2) NOT NULL						<y:LabelModel>
 		<node id="n12">
 			<data key="nodegraph">
 				<y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-					<y:Geometry height="245" width="380" x="113" y="436"/>
+					<y:Geometry height="245" width="380" x="283" y="380"/>
 					<y:Fill color="#ECEBEC" transparent="false"/>
 					<y:BorderStyle color="#000000" type="line" width="1.0"/>
-					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="376" x="115" y="438">orders</y:NodeLabel>
-					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="195" width="376" x="115" y="484">id: int4 NOT NULL
+					<y:NodeLabel alignment="center" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.name" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="internal" modelPosition="t" backgroundColor="#ECEBEC" textColor="#000000" visible="true" height="22" width="376" x="285" y="382">orders</y:NodeLabel>
+					<y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Courier" fontSize="12" fontStyle="plain" hasLineColor="false" modelName="custom" modelPosition="t" backgroundColor="#FFFFFF" textColor="#000000" visible="true" height="195" width="376" x="285" y="428">id: int4 NOT NULL
 clientId: int4
 employeeId: int4 NOT NULL
 tableId: int4 NOT NULL
