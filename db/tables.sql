@@ -1,7 +1,7 @@
 create table if not exists "clients" (
 	"id" serial primary key,
-	"firstName" varchar(100) null,
-	"lastName" varchar(100) not null,
+	"firstName" varchar(100) not null,
+	"lastName" varchar(100) null,
 	"email" varchar(50),
 	"phoneNumber" varchar(20) not null
 );
