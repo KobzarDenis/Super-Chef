@@ -85,6 +85,7 @@ create table if not exists "service"."orders" (
 	"priceWithDiscount" numeric(5,2) null,
 	"tips" numeric(5,2) default 0,
 	"paymentType" "enum_orders_paymentType" not null,
+	"status" "enum_orders_status" not null default 'opened',
 	foreign key ("clientId") references "service"."clients" ("id"),
 	foreign key ("employeeId") references "personal"."employees" ("id"),
 	foreign key ("tableId") references "service"."tables" ("id"),

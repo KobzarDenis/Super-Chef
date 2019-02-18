@@ -1,0 +1,1 @@
+alter table stock.caterers add column "status" enum_caterers_status not null default 'active';

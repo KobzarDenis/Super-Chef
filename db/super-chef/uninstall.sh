@@ -1,0 +1,3 @@
+docker stop kobzar_psql_container
+docker rm kobzar_psql_container
+docker rmi kobzar_psql_img

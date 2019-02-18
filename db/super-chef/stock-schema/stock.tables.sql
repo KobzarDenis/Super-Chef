@@ -12,6 +12,8 @@ create table if not exists "stock"."products"(
 	"rest" numeric(5,2) not null,
 	"code" varchar(50) unique not null,
 	"groupId" int4 not null,
+	"price" numeric(5,2) not null,
+	constraint "products_price" check("price" > 0),
 	constraint "products_code_length" check(char_length("code") >= 5),
 	constraint "products_positive_rest" check("rest" >= 0),
 	foreign key ("groupId") references "stock"."productGroups" ("id")
@@ -25,6 +27,7 @@ create table if not exists "stock"."caterers"(
 	"phoneNumber" varchar(20) unique not null,
 	"email" varchar(50) null,
 	"site" text null,
+	"status" "enum_caterers_status" not null default 'active',
 	"accountId" int4 unique not null,
 	"createdAt" timestamptz not null,
 	"updatedAt" timestamptz not null,

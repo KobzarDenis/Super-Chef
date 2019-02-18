@@ -1,0 +1,1 @@
+alter table service.orders add column status enum_orders_status not null default 'opened';
