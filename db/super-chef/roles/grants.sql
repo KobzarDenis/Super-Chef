@@ -1,3 +1,5 @@
+CREATE ROLE chef SUPERUSER CREATEDB CREATEROLE NOINHERIT LOGIN PASSWORD 'test';
+
 create role "accountant" with login password 'admin';
 grant usage on schema "bookkeeping" to  "accountant";
 

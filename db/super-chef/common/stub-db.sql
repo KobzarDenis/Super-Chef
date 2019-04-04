@@ -79,9 +79,9 @@ insert into stock.products values
 
 -- Create caterers
 delete from stock.caterers;
-insert into stock.caterers values
-	(default, 'ct-11', 'Fish&Fruits', 'Kiev, Panelnaya st. 67', '+380948765645', null, null, (select id from bookkeeping.accounts where number='41490000000000000004'), (select CURRENT_TIMESTAMP), (select CURRENT_TIMESTAMP)),
-	(default, 'ct-22', 'MeetVeg.Co', 'Lutsk, Goldovaya st. 73', '+380948765649', null, null, (select id from bookkeeping.accounts where number='41490000000000000005'), (select CURRENT_TIMESTAMP), (select CURRENT_TIMESTAMP));
+insert into stock.caterers (id, code, name, address, "phoneNumber", email, site, "accountId", "createdAt", "updatedAt") values
+(default, 'ct-11', 'Fish&Fruits', 'Kiev, Panelnaya st. 67', '+380948765645', null, null, (select id from bookkeeping.accounts where number='41490000000000000004'), (select CURRENT_TIMESTAMP), (select CURRENT_TIMESTAMP)),
+(default, 'ct-22', 'MeetVeg.Co', 'Lutsk, Goldovaya st. 73', '+380948765649', null, null, (select id from bookkeeping.accounts where number='41490000000000000005'), (select CURRENT_TIMESTAMP), (select CURRENT_TIMESTAMP));
 
 -- create functions for update transactions statuses
 create or replace function change_salary_monthly_transaction_status (old_status integer, new_status integer) returns void AS $$

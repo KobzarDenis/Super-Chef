@@ -62,3 +62,98 @@ create table if not exists "bookkeeping"."outcomes"(
 	foreign key ("accountId") references "bookkeeping"."accounts" ("id"),
 	foreign key ("employeeId") references "personal"."employees" ("id")
 );
+
+-- Stats tables with base partitions
+
+create table if not exists "bookkeeping"."outcomesTransactionMonthStats"(
+	id serial not null,
+	"date" date not null,
+	"accountNumber" varchar(100) not null,
+	"bankName" varchar(100) not null,
+	"amount" numeric(7, 2) not null,
+	"succeed" int4 not null default 0,
+	"canceled" int2 not null default 0,
+	CONSTRAINT "outcomesMonthStats_positive_amount" CHECK ((amount > (0)::numeric)),
+	CONSTRAINT "outcomesMonthStats_positive_suceed_count" CHECK ((succeed >= (0)::numeric)),
+	CONSTRAINT "outcomesMonthStats_positive_canceled_count" CHECK ((canceled >= (0)::numeric))
+) partition by list (extract(year from date));
+
+
+CREATE TABLE "bookkeeping"."outcomesTransactionMonthStats_2018" PARTITION OF "bookkeeping"."outcomesTransactionMonthStats"
+    FOR values IN (2018) partition by list (extract(month from date));
+
+CREATE TABLE "bookkeeping"."outcomesTransactionMonthStats_2018_01" PARTITION OF "bookkeeping"."outcomesTransactionMonthStats_2018"
+    FOR values IN (1);
+CREATE TABLE "bookkeeping"."outcomesTransactionMonthStats_2018_02" PARTITION OF "bookkeeping"."outcomesTransactionMonthStats_2018"
+    FOR values IN (2);
+CREATE TABLE "bookkeeping"."outcomesTransactionMonthStats_2018_03" PARTITION OF "bookkeeping"."outcomesTransactionMonthStats_2018"
+    FOR values IN (3);
+CREATE TABLE "bookkeeping"."outcomesTransactionMonthStats_2018_04" PARTITION OF "bookkeeping"."outcomesTransactionMonthStats_2018"
+    FOR values IN (4);
+CREATE TABLE "bookkeeping"."outcomesTransactionMonthStats_2018_05" PARTITION OF "bookkeeping"."outcomesTransactionMonthStats_2018"
+    FOR values IN (5);
+CREATE TABLE "bookkeeping"."outcomesTransactionMonthStats_2018_06" PARTITION OF "bookkeeping"."outcomesTransactionMonthStats_2018"
+    FOR values IN (6);
+CREATE TABLE "bookkeeping"."outcomesTransactionMonthStats_2018_07" PARTITION OF "bookkeeping"."outcomesTransactionMonthStats_2018"
+    FOR values IN (7);
+CREATE TABLE "bookkeeping"."outcomesTransactionMonthStats_2018_08" PARTITION OF "bookkeeping"."outcomesTransactionMonthStats_2018"
+    FOR values IN (8);
+CREATE TABLE "bookkeeping"."outcomesTransactionMonthStats_2018_09" PARTITION OF "bookkeeping"."outcomesTransactionMonthStats_2018"
+    FOR values IN (9);
+CREATE TABLE "bookkeeping"."outcomesTransactionMonthStats_2018_10" PARTITION OF "bookkeeping"."outcomesTransactionMonthStats_2018"
+    FOR values IN (10);
+CREATE TABLE "bookkeeping"."outcomesTransactionMonthStats_2018_11" PARTITION OF "bookkeeping"."outcomesTransactionMonthStats_2018"
+    FOR values IN (11);
+CREATE TABLE "bookkeeping"."outcomesTransactionMonthStats_2018_12" PARTITION OF "bookkeeping"."outcomesTransactionMonthStats_2018"
+    FOR values IN (12);
+
+CREATE TABLE "bookkeeping"."outcomesTransactionMonthStats_2019" PARTITION OF "bookkeeping"."outcomesTransactionMonthStats"
+    FOR values IN (2019) partition by list (extract(month from date));
+
+CREATE TABLE "bookkeeping"."outcomesTransactionMonthStats_2019_01" PARTITION OF "bookkeeping"."outcomesTransactionMonthStats_2019"
+    FOR values IN (1);
+CREATE TABLE "bookkeeping"."outcomesTransactionMonthStats_2019_02" PARTITION OF "bookkeeping"."outcomesTransactionMonthStats_2019"
+    FOR values IN (2);
+CREATE TABLE "bookkeeping"."outcomesTransactionMonthStats_2019_03" PARTITION OF "bookkeeping"."outcomesTransactionMonthStats_2019"
+    FOR values IN (3);
+CREATE TABLE "bookkeeping"."outcomesTransactionMonthStats_2019_04" PARTITION OF "bookkeeping"."outcomesTransactionMonthStats_2019"
+    FOR values IN (4);
+CREATE TABLE "bookkeeping"."outcomesTransactionMonthStats_2019_05" PARTITION OF "bookkeeping"."outcomesTransactionMonthStats_2019"
+    FOR values IN (5);
+CREATE TABLE "bookkeeping"."outcomesTransactionMonthStats_2019_06" PARTITION OF "bookkeeping"."outcomesTransactionMonthStats_2019"
+    FOR values IN (6);
+CREATE TABLE "bookkeeping"."outcomesTransactionMonthStats_2019_07" PARTITION OF "bookkeeping"."outcomesTransactionMonthStats_2019"
+    FOR values IN (7);
+CREATE TABLE "bookkeeping"."outcomesTransactionMonthStats_2019_08" PARTITION OF "bookkeeping"."outcomesTransactionMonthStats_2019"
+    FOR values IN (8);
+CREATE TABLE "bookkeeping"."outcomesTransactionMonthStats_2019_09" PARTITION OF "bookkeeping"."outcomesTransactionMonthStats_2019"
+    FOR values IN (9);
+CREATE TABLE "bookkeeping"."outcomesTransactionMonthStats_2019_10" PARTITION OF "bookkeeping"."outcomesTransactionMonthStats_2019"
+    FOR values IN (10);
+CREATE TABLE "bookkeeping"."outcomesTransactionMonthStats_2019_11" PARTITION OF "bookkeeping"."outcomesTransactionMonthStats_2019"
+    FOR values IN (11);
+CREATE TABLE "bookkeeping"."outcomesTransactionMonthStats_2019_12" PARTITION OF "bookkeeping"."outcomesTransactionMonthStats_2019"
+    FOR values IN (12);
+
+-- ------------------------------------------------------------------------------------------------------------------------------------------------------
+
+create table if not exists "bookkeeping"."outcomesTransactionYearStats"(
+	id serial not null,
+	"date" date not null,
+	"accountNumber" varchar(100) not null,
+	"bankName" varchar(100) not null,
+	"amount" numeric(7, 2) not null,
+	"succeed" int4 not null default 0,
+	"canceled" int2 not null default 0,
+	CONSTRAINT "outcomesYearStats_positive_amount" CHECK ((amount > (0)::numeric)),
+	CONSTRAINT "outcomesYearStats_positive_suceed_count" CHECK ((succeed >= (0)::numeric)),
+	CONSTRAINT "outcomesYearStats_positive_canceled_count" CHECK ((canceled >= (0)::numeric))
+) partition by range (date);
+
+CREATE TABLE "bookkeeping"."outcomesTransactionYearStats_2018" PARTITION OF "bookkeeping"."outcomesTransactionYearStats"
+    FOR VALUES FROM ('2018-01-01') TO ('2019-01-01');
+
+ CREATE TABLE "bookkeeping"."outcomesTransactionYearStats_2019" PARTITION OF "bookkeeping"."outcomesTransactionYearStats"
+    FOR VALUES FROM ('2019-01-01') TO ('2019-12-31');
+
+-- ------------------------------------------------------------------------------------------------------------------------------------------------------
