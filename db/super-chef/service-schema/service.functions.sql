@@ -6,7 +6,7 @@ declare "orderPrice" numeric(4, 3);
 declare "finalPrice" numeric(4, 3);
 begin
 select sum(sof.price) into "orderPrice" from service.orders as so
-                                               inner join service."orderFoods" as sof on so.id=sof."orderId"
+    inner join service."orderFoods" as sof on so.id=sof."orderId"
 where id=orderId;
 "discountValue":= service.calculate_discount(dicountCode, "orderPrice");
 
