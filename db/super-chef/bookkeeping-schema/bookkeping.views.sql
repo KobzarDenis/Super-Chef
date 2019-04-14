@@ -2,24 +2,15 @@
 
 CREATE OR REPLACE VIEW bookkeeping.monthly_outcomes
 AS SELECT acc.number AS "accountNumber",
-    bnk.name AS "bankName",
-    min(ot."timestamp") AS date,
-    sum(ot.amount) AS amount,
-    ( SELECT count(1) AS count
-           FROM bookkeeping.outcomes
-          WHERE outcomes."accountId" = ot."accountId" AND outcomes.status = (( SELECT "transactionStatuses".id
-                   FROM bookkeeping."transactionStatuses"
-                  WHERE "transactionStatuses".name::text = 'Success'::text))) AS succeed,
-    ( SELECT count(1) AS count
-           FROM bookkeeping.outcomes
-          WHERE outcomes."accountId" = ot."accountId" AND outcomes.status = (( SELECT "transactionStatuses".id
-                   FROM bookkeeping."transactionStatuses"
-                  WHERE "transactionStatuses".name::text = 'Canceled'::text))) AS canceled
+          bnk.name AS "bankName",
+          min(ot."timestamp") AS date,
+          sum(ot.amount) AS amount,
+          sum (CASE WHEN ot.status = 4 THEN 1 ELSE 0 END)  as succeed,
+          sum (CASE WHEN ot.status = 2 THEN 1 ELSE 0 END)  as canceled
    FROM bookkeeping.outcomes ot
-     LEFT JOIN bookkeeping.accounts acc ON ot."accountId" = acc.id
-     LEFT JOIN bookkeeping.banks bnk ON acc."bankId" = bnk.id
-  GROUP BY ot."accountId", acc.number, bnk.name;
-
+            LEFT JOIN bookkeeping.accounts acc ON ot."accountId" = acc.id
+            LEFT JOIN bookkeeping.banks bnk ON acc."bankId" = bnk.id
+   GROUP BY ot."accountId", acc.number, bnk.name;
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
