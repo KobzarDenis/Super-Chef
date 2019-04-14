@@ -27,9 +27,7 @@ AS SELECT e.id AS "employeeId",
      LEFT JOIN bookkeeping.accounts acc ON oc."accountId" = acc.id
      LEFT JOIN bookkeeping.banks b ON acc."bankId" = b.id
      LEFT JOIN personal.employees e ON acc.id = e."accountId"
-  WHERE oc."outcomeType" = (( SELECT "transactionTypes".id
-           FROM bookkeeping."transactionTypes"
-          WHERE "transactionTypes".name::text = 'Salary'::text));
+  WHERE oc."outcomeType" = 1;
 
 -- View for selecting order-food outcomes info
 
@@ -48,8 +46,6 @@ AS SELECT c.id AS "catererId",
      LEFT JOIN bookkeeping.accounts acc ON oc."accountId" = acc.id
      LEFT JOIN bookkeeping.banks b ON acc."bankId" = b.id
      LEFT JOIN stock.caterers c ON acc.id = c."accountId"
-  WHERE oc."outcomeType" = (( SELECT "transactionTypes".id
-           FROM bookkeeping."transactionTypes"
-          WHERE "transactionTypes".name::text = 'Order-Food'::text));
+  WHERE oc."outcomeType" = 2;
 
 
