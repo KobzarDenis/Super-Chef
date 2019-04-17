@@ -8,7 +8,7 @@ create index "foods_price_idx" on  "service"."foods" ("price");
 
 
 -- Indexes for discounts
-create index "discounts_code_idx" on  "service"."discounts" ("code");
+create index "discounts_code_idx" on  "service"."discounts" using hash ("code");
 
 -- Indexes for orders
 create index "orders_paymentType_idx" on  "service"."orders" ("paymentType");
