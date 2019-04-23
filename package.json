@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/index.js"
+    "start": "node ./src/index.js",
+    "stubData": "node --require ts-node/register ./src/stubData.ts"
   },
   "repository": {
     "type": "git",
@@ -17,12 +18,21 @@
   },
   "homepage": "https://github.com/KobzarDenis/Super-Chef#readme",
   "dependencies": {
+    "@types/faker": "^4.1.2",
+    "@types/lodash": "^4.14.123",
+    "@types/node": "^11.13.7",
+    "@types/winston": "^2.3.8",
     "factory-girl": "^5.0.4",
     "faker": "^4.1.0",
     "fs-extra": "^5.0.0",
+    "lodash": "^4.17.11",
     "pg": "^7.4.3",
     "reflect-metadata": "^0.1.12",
     "sequelize": "^4.42.0",
-    "source-map-support": "^0.5.3"
+    "sequelize-typescript": "^0.6.10",
+    "source-map-support": "^0.5.3",
+    "ts-node": "^5.0.1",
+    "typescript": "^3.4.5",
+    "winston": "^2.4.0"
   }
 }

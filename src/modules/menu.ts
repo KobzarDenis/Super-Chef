@@ -151,4 +151,4 @@ const menu = [
     }
 ];
 
-module.exports.menu = menu;
+export default menu;
