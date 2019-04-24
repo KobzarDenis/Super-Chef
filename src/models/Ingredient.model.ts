@@ -1,6 +1,6 @@
-import { BelongsToMany, Column, Model, Table } from "sequelize-typescript";
-import { Food } from "./Food.model";
+import { Column,BelongsToMany,HasMany, Model, Table } from "sequelize-typescript";
 import { FoodIngredient } from "./FoodIngredient.model";
+import { Food } from "./Food.model";
 
 @Table({
   timestamps: false,
@@ -14,4 +14,7 @@ export class Ingredient extends Model<Ingredient> {
 
   @BelongsToMany(() => Food, () => FoodIngredient)
   public foods: Food[];
+
+  @HasMany(() => FoodIngredient)
+  public foodIngredients: FoodIngredient[];
 }

@@ -48,6 +48,7 @@ export namespace FactoryUtils {
   }
 
   getBank.current = null;
+
   export function getBank(id) {
     const banks = {
       1: {
@@ -79,6 +80,28 @@ export namespace FactoryUtils {
     getBank.current = banks[id];
 
     return banks[id].name;
+  }
+
+  dateGenerator.dayNumber = 1;
+  export function dateGenerator(options?) {
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+    const years = [2016, 2017, 2018];
+
+    const day = faker.random.number({
+      min: 1,
+      max: 28
+    });
+
+    const month = (options && options.month) ? months[options.month] : faker.random.arrayElement(months);
+    const year = (options && options.year) ? options.year : faker.random.arrayElement(years);
+    const hour = (options && options.hour) ? options.hour : faker.random.number({
+      min: 1,
+      max: 20
+    });
+
+    const date = new Date(`${day} ${month} ${year} ${hour}:30:00 GMT+00:00`);
+    dateGenerator.dayNumber = day;
+    return date;
   }
 
 }

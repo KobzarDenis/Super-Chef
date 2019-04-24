@@ -1,5 +1,5 @@
 import { Column, DataType, HasMany, Model, Table } from "sequelize-typescript";
-import { Order } from "./Order.model";
+import { ServiceOrder } from "./ServiceOrder.model";
 
 @Table({
   timestamps: false,
@@ -16,6 +16,6 @@ export class SeatTable extends Model<SeatTable> {
   })
   public status: string;
 
-  @HasMany(() => Order)
-  public orders: Order[];
+  @HasMany(() => ServiceOrder)
+  public orders: ServiceOrder[];
 }

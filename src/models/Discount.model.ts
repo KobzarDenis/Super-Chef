@@ -1,6 +1,6 @@
 import { DiscountGroup } from "./DiscountGroup.model";
 import { BelongsTo, Column, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
-import { Order } from "./Order.model";
+import { ServiceOrder } from "./ServiceOrder.model";
 
 @Table({
   timestamps: false,
@@ -34,6 +34,6 @@ export class Discount extends Model<Discount> {
   @BelongsTo(() => DiscountGroup)
   public discountGroup: DiscountGroup[];
 
-  @HasMany(() => Order)
-  public orders: Order[];
+  @HasMany(() => ServiceOrder)
+  public orders: ServiceOrder[];
 }

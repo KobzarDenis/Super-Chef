@@ -1,8 +1,10 @@
-import { BelongsTo, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
+import { BelongsTo, BelongsToMany, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
 import { Client } from "./Client.model";
 import { Employee } from "./Employee.model";
 import { Discount } from "./Discount.model";
 import { SeatTable } from "./Table.model";
+import { Food } from "./Food.model";
+import { OrderFood } from "./OrderFood.model";
 
 @Table({
   timestamps: false,
@@ -10,7 +12,7 @@ import { SeatTable } from "./Table.model";
   tableName: "orders",
   schema: "service"
 })
-export class Order extends Model<Order> {
+export class ServiceOrder extends Model<ServiceOrder> {
   @ForeignKey(() => Client)
   @Column
   public clientId: number;
@@ -63,5 +65,8 @@ export class Order extends Model<Order> {
 
   @BelongsTo(() => SeatTable)
   public seatTable: SeatTable;
+
+  @BelongsToMany(() => Food, () => OrderFood)
+  public foods: Food[];
 
 }

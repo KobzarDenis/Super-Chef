@@ -1,7 +1,7 @@
 import { EmployeeRole } from "./EmployeeRole.model";
 import { BelongsTo, Column, Model, Table, DataType, ForeignKey, HasMany } from "sequelize-typescript";
 import { Account } from "./Account.model";
-import { Order } from "./Order.model";
+import { ServiceOrder } from "./ServiceOrder.model";
 
 @Table({
   timestamps: false,
@@ -62,6 +62,6 @@ export class Employee extends Model<Employee> {
   @BelongsTo(() => Account)
   public account: Account;
 
-  @HasMany(() => Order)
-  public orders: Order[];
+  @HasMany(() => ServiceOrder)
+  public orders: ServiceOrder[];
 }

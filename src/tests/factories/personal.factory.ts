@@ -8,6 +8,7 @@ import { FactoryUtils } from "./utils";
 factory.define("EmployeeRole", EmployeeRole, async (buildOptions) => {
   return factory.mapData({
     name: faker.random.arrayElement(['Accountant', 'Waiter', 'Manager']),
+    description: faker.lorem.text()
   }, buildOptions);
 });
 
@@ -25,7 +26,7 @@ factory.define("Employee", Employee, (buildOptions) => {
     firstName: faker.name.firstName(),
     lastName: faker.name.lastName(),
     address: faker.address.streetAddress(true),
-    offerDate: new Date(),
-    fireDate: new Date()
+    offerDate: FactoryUtils.dateGenerator(),
+    fireDate: FactoryUtils.dateGenerator()
   }, buildOptions);
 });

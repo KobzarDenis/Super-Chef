@@ -1,7 +1,7 @@
 import { Column, Model, Table, BelongsToMany, HasMany } from "sequelize-typescript";
 import { Discount } from "./Discount.model";
 import { ClientDiscount } from "./ClientDiscount.model";
-import { Order } from "./Order.model";
+import { ServiceOrder } from "./ServiceOrder.model";
 
 @Table({
   timestamps: false,
@@ -26,6 +26,6 @@ export class Client extends Model<Client> {
   @BelongsToMany(() => Discount, () => ClientDiscount)
   public discounts: Discount[];
 
-  @HasMany(() => Order)
-  public orders: Order[];
+  @HasMany(() => ServiceOrder)
+  public orders: ServiceOrder[];
 }

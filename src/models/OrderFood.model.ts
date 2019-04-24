@@ -1,6 +1,6 @@
-import { Column, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
+import { BelongsTo, Column, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
 import { Food } from "./Food.model";
-import { Order } from "./Order.model";
+import { ServiceOrder } from "./ServiceOrder.model";
 
 @Table({
   timestamps: false,
@@ -13,7 +13,7 @@ export class OrderFood extends Model<OrderFood> {
   @Column
   public foodId: number;
 
-  @ForeignKey(() => Order)
+  @ForeignKey(() => ServiceOrder)
   @Column
   public orderId: number;
 
@@ -23,9 +23,9 @@ export class OrderFood extends Model<OrderFood> {
   @Column
   public price: number;
 
-  @HasMany(() => Food)
-  public foods: Food[];
+  @BelongsTo(() => Food)
+  public food: Food;
 
-  @HasMany(() => Order)
-  public orders: Order[];
+  @BelongsTo(() => ServiceOrder)
+  public order: ServiceOrder;
 }

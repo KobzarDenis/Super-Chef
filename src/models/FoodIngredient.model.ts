@@ -1,4 +1,4 @@
-import { Column, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
+import { Column, BelongsTo, ForeignKey, Model, Table } from "sequelize-typescript";
 import { Food } from "./Food.model";
 import { Ingredient } from "./Ingredient.model";
 
@@ -20,9 +20,9 @@ export class FoodIngredient extends Model<FoodIngredient> {
   @Column
   public weight: number;
 
-  @HasMany(() => Food)
-  public foods: Food[];
+  @BelongsTo(() => Food)
+  public food: Food;
 
-  @HasMany(() => Ingredient)
-  public ingredients: Ingredient[];
+  @BelongsTo(() => Ingredient)
+  public ingredient: Ingredient;
 }
