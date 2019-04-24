@@ -7,7 +7,7 @@ begin
     "oPrice" := (select service.calculate_order_amount("orderId", "dicountCode"));
     select service.update_discount_bonuses("discountCode", "oPrice");
     select bookkeping.create_transaction_incomes("oPrice", 9, concat('Pay for order: ', "orderId"));
-    exception when others then rollback;
     commit;
+    exception when others then rollback;
 end;
 $procedure$;
