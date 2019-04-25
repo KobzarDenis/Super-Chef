@@ -9,8 +9,8 @@ comment on column  "stock"."products"."rest" is 'Type numeric(5,2) because we ne
 comment on column  "stock"."products"."code" is 'Type varchar(200) code can be shorter but can not be longer than 50 characters. Uniq identifier between the same kind of products.';
 comment on constraint  "products_code_length" on "stock"."products" is 'Code can not be shorter than 5 characters. Uniq for each products.';
 comment on constraint  "products_positive_rest" on "stock"."products" is 'Rest can not be smallest than 0.';
-comment on index  "stock"."products_name" is 'This index created for optimized products search by name.';
-comment on index  "stock"."products_code" is 'This index created for optimized products search by code.';
+comment on index  "stock"."products_name_idx" is 'This index created for optimized products search by name.';
+comment on index  "stock"."products_code_idx" is 'This index created for optimized products search by code.';
 
 
 -- Comments for caterers types and constraints
@@ -24,16 +24,16 @@ comment on column  "stock"."caterers"."createdAt" is 'Type timestamptz because w
 comment on column  "stock"."caterers"."updatedAt" is 'Type timestamptz because we can have worldwide restaurant. Required.';
 comment on column  "stock"."caterers"."deletedAt" is 'Type timestamptz because we can have worldwide restaurant. Not required.';
 comment on constraint  "caterers_code_length" on "stock"."caterers" is 'Code can not be shorter than 5 characters. Uniq for each caterers.';
-comment on index  "stock"."caterers_code" is 'This index created for optimized caterers search by code.';
-comment on index  "stock"."caterers_phoneNumber" is 'This index created for optimized caterers search by phone number.';
-comment on index  "stock"."caterers_name_code" is 'This index created for optimized caterers search both name and code.';
+comment on index  "stock"."caterers_code_idx" is 'This index created for optimized caterers search by code.';
+comment on index  "stock"."caterers_phoneNumber_idx" is 'This index created for optimized caterers search by phone number.';
+comment on index  "stock"."caterers_name_code_idx" is 'This index created for optimized caterers search both name and code.';
 
 
 -- Comments for productApplying types and constraints
 comment on column  "stock"."productApplying"."date" is 'Type timestamptz because we can have worldwide restaurant. Required.';
 comment on column  "stock"."productApplying"."count" is 'Type numeric(5,2) because we need only 2 digits scale. Required';
 comment on constraint  "productApplying_positive_count" on "stock"."productApplying" is 'Count can not be smallest than 0.';
-comment on index  "stock"."productApplying_date" is 'This index created for optimized applying search by date.';
+comment on index  "stock"."productApplying_date_idx" is 'This index created for optimized applying search by date.';
 
 
 -- Comments for orders types and constraints
@@ -44,7 +44,7 @@ comment on column  "stock"."orders"."orderDate" is 'Type timestamptz because we 
 comment on column  "stock"."orders"."supplyDate" is 'Type timestamptz because we can have worldwide restaurant. Set only after supply.';
 comment on constraint  "stock_orders_count" on "stock"."orders" is 'Count can not be smallest than 0.1.';
 comment on constraint  "stock_orders_amount" on "stock"."orders" is 'Amount can not be smallest than 0.1.';
-comment on index  "stock"."orders_invoiceNumber" is 'This index created for optimized product orders search by invoice number.';
-comment on index  "stock"."orders_orderDate" is 'This index created for optimized product orders search by order date.';
-comment on index  "stock"."orders_supplyDate" is 'This index created for optimized product orders search by supply date.';
-comment on index  "stock"."orders_amount" is 'This index created for optimized product orders search by order amount.';
+comment on index  "stock"."orders_invoiceNumber_idx" is 'This index created for optimized product orders search by invoice number.';
+comment on index  "stock"."orders_orderDate_idx" is 'This index created for optimized product orders search by order date.';
+comment on index  "stock"."orders_supplyDate_idx" is 'This index created for optimized product orders search by supply date.';
+comment on index  "stock"."orders_amount_idx" is 'This index created for optimized product orders search by order amount.';

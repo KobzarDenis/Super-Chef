@@ -9,10 +9,10 @@ create table if not exists "stock"."productGroups"(
 create table if not exists "stock"."products"(
 	"id" serial primary key,
 	"name" varchar(200) not null,
-	"rest" numeric(5,2) not null,
+	"rest" numeric(15,2) not null,
 	"code" varchar(50) unique not null,
 	"groupId" int4 not null,
-	"price" numeric(5,2) not null,
+	"price" numeric(15,2) not null,
 	constraint "products_price" check("price" > 0),
 	constraint "products_code_length" check(char_length("code") >= 5),
 	constraint "products_positive_rest" check("rest" >= 0),
@@ -46,7 +46,7 @@ create table if not exists "stock"."catererProducts"(
 
 create table if not exists "stock"."productApplying"(
 	"productId" int4 not null,
-	"count" numeric(5,2) not null,
+	"count" numeric(15,2) not null,
 	"date" timestamptz not null,
 	constraint "productApplying_positive_count" check("count" > 0),
 	foreign key ("productId") references "stock"."products" ("id")
@@ -63,11 +63,11 @@ create table if not exists "stock"."orders"(
 	"catererId" int4 not null,
 	"employeeId" int4 not null,
 	"invoiceNumber" varchar(100) not null,
-	"count" numeric(5,2) not null,
+	"count" numeric(15,2) not null,
 	"orderDate" timestamptz not null,
 	"supplyDate" timestamptz null,
 	"statusId" smallint not null,
-	"amount" numeric(5,2) not null,
+	"amount" numeric(15,2) not null,
 	constraint "stock_orders_count" check("count" > 0),
 	constraint "stock_orders_amount" check("amount" > 0),
 	foreign key ("employeeId") references "personal"."employees" ("id"),
@@ -87,11 +87,67 @@ create table if not exists stock."product_ordersMothStats"(
 	"catererCode" varchar(50) not null,
 	"catererAccountNumber" varchar(100) not null,
 	"date" date not null,
-	"amount"  numeric(7, 2) not null,
+	"amount"  numeric(15, 2) not null,
 	"productCount" int4 not null,
 	CONSTRAINT "product_ordersMothStats_positive_amount" CHECK ((amount > (0)::numeric)),
 	CONSTRAINT "product_ordersMothStats_positive_productCount" CHECK (("productCount" > (0)::numeric))
 ) partition by list (extract(year from "date"));
+
+CREATE TABLE "stock"."product_ordersMothStats_2016" PARTITION OF "stock"."product_ordersMothStats"
+    FOR values IN (2016) partition by list (extract(month from date));
+
+CREATE TABLE "stock"."product_ordersMothStats_2016_01" PARTITION OF "stock"."product_ordersMothStats_2016"
+    FOR values IN (1);
+CREATE TABLE "stock"."product_ordersMothStats_2016_02" PARTITION OF "stock"."product_ordersMothStats_2016"
+    FOR values IN (2);
+CREATE TABLE "stock"."product_ordersMothStats_2016_03" PARTITION OF "stock"."product_ordersMothStats_2016"
+    FOR values IN (3);
+CREATE TABLE "stock"."product_ordersMothStats_2016_04" PARTITION OF "stock"."product_ordersMothStats_2016"
+    FOR values IN (4);
+CREATE TABLE "stock"."product_ordersMothStats_2016_05" PARTITION OF "stock"."product_ordersMothStats_2016"
+    FOR values IN (5);
+CREATE TABLE "stock"."product_ordersMothStats_2016_06" PARTITION OF "stock"."product_ordersMothStats_2016"
+    FOR values IN (6);
+CREATE TABLE "stock"."product_ordersMothStats_2016_07" PARTITION OF "stock"."product_ordersMothStats_2016"
+    FOR values IN (7);
+CREATE TABLE "stock"."product_ordersMothStats_2016_08" PARTITION OF "stock"."product_ordersMothStats_2016"
+    FOR values IN (8);
+CREATE TABLE "stock"."product_ordersMothStats_2016_09" PARTITION OF "stock"."product_ordersMothStats_2016"
+    FOR values IN (9);
+CREATE TABLE "stock"."product_ordersMothStats_2016_10" PARTITION OF "stock"."product_ordersMothStats_2016"
+    FOR values IN (10);
+CREATE TABLE "stock"."product_ordersMothStats_2016_11" PARTITION OF "stock"."product_ordersMothStats_2016"
+    FOR values IN (11);
+CREATE TABLE "stock"."product_ordersMothStats_2016_12" PARTITION OF "stock"."product_ordersMothStats_2016"
+    FOR values IN (12);
+
+CREATE TABLE "stock"."product_ordersMothStats_2017" PARTITION OF "stock"."product_ordersMothStats"
+    FOR values IN (2017) partition by list (extract(month from date));
+
+CREATE TABLE "stock"."product_ordersMothStats_2017_01" PARTITION OF "stock"."product_ordersMothStats_2017"
+    FOR values IN (1);
+CREATE TABLE "stock"."product_ordersMothStats_2017_02" PARTITION OF "stock"."product_ordersMothStats_2017"
+    FOR values IN (2);
+CREATE TABLE "stock"."product_ordersMothStats_2017_03" PARTITION OF "stock"."product_ordersMothStats_2017"
+    FOR values IN (3);
+CREATE TABLE "stock"."product_ordersMothStats_2017_04" PARTITION OF "stock"."product_ordersMothStats_2017"
+    FOR values IN (4);
+CREATE TABLE "stock"."product_ordersMothStats_2017_05" PARTITION OF "stock"."product_ordersMothStats_2017"
+    FOR values IN (5);
+CREATE TABLE "stock"."product_ordersMothStats_2017_06" PARTITION OF "stock"."product_ordersMothStats_2017"
+    FOR values IN (6);
+CREATE TABLE "stock"."product_ordersMothStats_2017_07" PARTITION OF "stock"."product_ordersMothStats_2017"
+    FOR values IN (7);
+CREATE TABLE "stock"."product_ordersMothStats_2017_08" PARTITION OF "stock"."product_ordersMothStats_2017"
+    FOR values IN (8);
+CREATE TABLE "stock"."product_ordersMothStats_2017_09" PARTITION OF "stock"."product_ordersMothStats_2017"
+    FOR values IN (9);
+CREATE TABLE "stock"."product_ordersMothStats_2017_10" PARTITION OF "stock"."product_ordersMothStats_2017"
+    FOR values IN (10);
+CREATE TABLE "stock"."product_ordersMothStats_2017_11" PARTITION OF "stock"."product_ordersMothStats_2017"
+    FOR values IN (11);
+CREATE TABLE "stock"."product_ordersMothStats_2017_12" PARTITION OF "stock"."product_ordersMothStats_2017"
+    FOR values IN (12);
 
 CREATE TABLE "stock"."product_ordersMothStats_2018" PARTITION OF "stock"."product_ordersMothStats"
     FOR values IN (2018) partition by list (extract(month from date));
@@ -160,14 +216,20 @@ create table if not exists stock."product_ordersYearStats"(
 	"catererCode" varchar(50) not null,
 	"catererAccountNumber" varchar(100) not null,
 	"date" date not null,
-	"amount"  numeric(7, 2) not null,
+	"amount"  numeric(15, 2) not null,
 	"productCount" int4 not null,
 	CONSTRAINT "product_ordersMothStats_positive_amount" CHECK ((amount > (0)::numeric)),
 	CONSTRAINT "product_ordersMothStats_positive_productCount" CHECK (("productCount" > (0)::numeric))
 ) partition by range (date);
 
+CREATE TABLE "stock"."product_ordersYearStats_2016" PARTITION OF "stock"."product_ordersYearStats"
+    FOR VALUES FROM ('2016-01-01') TO ('2017-01-01');
+
+CREATE TABLE "stock"."product_ordersYearStats_2017" PARTITION OF "stock"."product_ordersYearStats"
+    FOR VALUES FROM ('2017-01-01') TO ('2018-01-01');
+
 CREATE TABLE "stock"."product_ordersYearStats_2018" PARTITION OF "stock"."product_ordersYearStats"
     FOR VALUES FROM ('2018-01-01') TO ('2019-01-01');
 
- CREATE TABLE "stock"."product_ordersYearStats_2019" PARTITION OF "stock"."product_ordersYearStats"
-    FOR VALUES FROM ('2019-01-01') TO ('2019-12-31');
+CREATE TABLE "stock"."product_ordersYearStats_2019" PARTITION OF "stock"."product_ordersYearStats"
+    FOR VALUES FROM ('2019-01-01') TO ('2020-01-01');

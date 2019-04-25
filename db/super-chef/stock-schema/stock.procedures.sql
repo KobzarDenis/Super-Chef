@@ -1,13 +1,13 @@
 -- Procedure for creating monthly PRODUCT ORDERS statistic (it can be used by JOB)
 
-CREATE OR REPLACE PROCEDURE stock."create_ordersMothStats"()
+CREATE OR REPLACE PROCEDURE stock."create_ordersMothStats"(yeard integer, monthd integer)
  LANGUAGE plpgsql
 AS $procedure$
 	declare curr_y integer;
 	declare curr_m integer;
  begin
-	 curr_y := extract(year from current_date);
-	 curr_m := extract(month from current_date);
+	 curr_y := coalesce(yeard, extract(year from current_date));
+	 curr_m := coalesce(monthd, extract(month from current_date));
 
 	insert into stock."product_ordersMothStats" (date, "productId", "productCode", "productName", "catererId", "catererCode", "catererName", "catererAccountNumber", amount, "productCount" )
 	select

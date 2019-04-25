@@ -15,7 +15,7 @@ create table if not exists "personal"."employees" (
 	"passportCode" varchar(5) not null,
 	"passportSeries" varchar(10) not null,
 	"sex" enum_employees_sex not null,
-	"salary" numeric(8,2) not null,
+	"salary" numeric(10,2) not null,
 	"address" varchar(100) not null,
 	"phoneNumber" varchar(20) not null,
 	"email" varchar(50) null,

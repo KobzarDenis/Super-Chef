@@ -26,7 +26,7 @@ comment on column  "bookkeeping"."incomes"."amount" is 'Type numeric(5,2) becaus
 comment on column  "bookkeeping"."incomes"."timestamp" is 'Type timestamptz because we can have worldwide restaurant. Required.';
 comment on column  "bookkeeping"."incomes"."incomeType" is 'Income type. Value from table transactionTypes. Required.';
 comment on constraint  "incomes_positive_amount" on "bookkeeping"."incomes" is 'Amount can not be smallest than 0.1.';
-comment on index  "bookkeeping"."incomes_transactions" is 'This index created for optimized incomes search by transactionId.';
+comment on index  "bookkeeping"."incomes_transactionId_idx" is 'This index created for optimized incomes search by transactionId.';
 comment on index  "bookkeeping"."incomes_dates" is 'This index created for optimized incomes search by dates.';
 
 -- Comments for outcomes types and constraints
@@ -37,5 +37,5 @@ comment on column  "bookkeeping"."outcomes"."timestamp" is 'Type timestamptz bec
 comment on column  "bookkeeping"."outcomes"."outcomeType" is 'Outcome type. Value from table transactionTypes. Required.';
 comment on column  "bookkeeping"."outcomes"."status" is 'Transaction status. Value from table transactionStatuses. Required.';
 comment on constraint  "outcomes_positive_amount" on "bookkeeping"."outcomes" is 'Amount can not be smallest than 0.1.';
-comment on index  "bookkeeping"."outcomes_transactions" is 'This index created for optimized outcomes search by transactionId.';
+comment on index  "bookkeeping"."outcomes_transactionId_idx" is 'This index created for optimized outcomes search by transactionId.';
 comment on index  "bookkeeping"."outcomes_dates" is 'This index created for optimized outcomes search by dates.';

@@ -236,7 +236,7 @@ async function generateTransactionOutcome(timestamp, accountId, employeeId, outc
     console.log("All Done!");
   } catch (e) {
     console.log(e);
-    //await factory.cleanUp();
+    await factory.cleanUp();
     process.exit(0);
   }
 })();

@@ -1,13 +1,13 @@
 -- Procedure for creating monthly OUTCOMES statistic (it can be used by JOB)
 
-CREATE OR REPLACE PROCEDURE bookkeeping."create_outcomesTransactionMonthStats"()
+CREATE OR REPLACE PROCEDURE bookkeeping."create_outcomesTransactionMonthStats"(yeard integer, monthd integer)
  LANGUAGE plpgsql
 AS $procedure$
  declare curr_y integer;
 	declare curr_m integer;
  begin
-	 curr_y := extract(year from current_date);
-	 curr_m := extract(month from current_date);
+	 curr_y := coalesce(yeard, extract(year from current_date));
+	 curr_m := coalesce(monthd, extract(month from current_date));
  insert into bookkeeping."outcomesTransactionMonthStats" (date, "bankName", "accountNumber", amount, succeed, canceled)
         select
 			current_date as "date",
